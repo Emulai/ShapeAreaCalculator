@@ -4,6 +4,13 @@ The calculator's menu is handled within the Main function and instantiates insta
 
 ## Design
 
+* There is an `AbstractShape` base class which provides three members:
+  * `_area`: double representing the shape's area
+  * `double GetArea()`: Returns the above ^^ to two decimal places. Could have been an accessor property, but I was back in the C++ console dev mentality and forgot that properties existed for a minute
+  * `void GetDimensions()`: A place for user input, making the input methods consistent between each shape
+* The classes `Circle`, `Triangle`, `Rectangle`, and `NGon` all inherit from the `AbstractShape` base class to provide shape-specific input instructions and area calculations
+* The main loop "design" has it in `Main` itself - I don't love that, but for such a simple program it didn't make much sense to extract it into it's own object or function. For other use-cases, I'd have provided a controller class with better program control/IO functionality etc
+
 ## Considerations
 
 * I toyed with the idea of setting these up as API endpoints and displaying the data in a web front-end, but ultimately determined it wouldn't make much of a difference, practically
